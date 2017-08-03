@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">App Protection</string>
+    <string name="username">User Name</string>
+    <string name="password">Password</string>
+    <string name="view_data">View data</string>
+    <string name="add_user">Add</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="title_activity_content_main2">Content Provider</string>
+    <string name="title_activity_tamper">Check </string>
+    <string name="title_activity_viewdata">View data </string>
+
+</resources>

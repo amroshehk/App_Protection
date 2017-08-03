@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.applefish.protectingapps">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="com.applefish.protectingapps.VIEW_DATA" />
+
+    <permission
+        android:name="com.applefish.protectingapps.VIEW_DATA"
+        android:label="diplay view data"
+        android:protectionLevel="dangerous" />
+
+    <permission android:name="com.applefish.protectingapps.READ_STUDENT_INFO"
+        android:label="write provider info"
+        android:protectionLevel="signature" />
+
+    <permission android:name="com.applefish.protectingapps.WRITE_STUDENT_INFO"
+        android:label="read provider info"
+        android:protectionLevel="signature" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher4"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ViewDataActivity"
+            android:exported="true"
+            android:permission="com.applefish.protectingapps.VIEW_DATA"
+            android:label="@string/title_activity_viewdata"
+            >
+            <intent-filter >
+                <action android:name="com.testpackage.permissiontestclient.MyAction" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ContentMain2Activity"
+            android:label="@string/title_activity_content_main2"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.applefish.protectingapps.MainActivity" />
+        </activity>
+
+        <provider
+            android:name=".StudentsProvider"
+            android:exported="true"
+            android:readPermission="com.applefish.protectingapps.READ_STUDENT_INFO"
+            android:writePermission="com.applefish.protectingapps.WRITE_STUDENT_INFO"
+                android:authorities="com.applefish.protectingapps.StudentsProvider" >
+            <!--<path-permission android:pth="/[path name]" />-->
+        </provider>
+
+        <activity android:name=".Tamperprotection"
+            android:label="@string/title_activity_tamper"/>
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
